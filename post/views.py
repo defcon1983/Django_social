@@ -17,9 +17,10 @@ class PostView(View):
 		return render(request, template, context)
 
 	def post(self,request):
+		#Esto llena el formulario
 		form=PostForm(request.POST)
 		form.save()
-
+		#Recarga la página con la url que indicamos y renderiza de nuevo
 		return redirect('todos')
 
 
