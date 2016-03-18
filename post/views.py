@@ -21,7 +21,7 @@ class PostView(View):
 		form=PostForm(request.POST)
 		form.save()
 		#Recarga la página con la url que indicamos y renderiza de nuevo
-		return redirect('todos')
+		return redirect('post:todos')
 
 class PostDetailView(View):
 		def get(self, request,slug):

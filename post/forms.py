@@ -7,3 +7,6 @@ class PostForm(forms.ModelForm):
 		model=Post
 		fields=('titulo', 'cuerpo')
 
+	# class PostImage:
+	# 	image=forms.FileField(laberl='Select photo post')
+
