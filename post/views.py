@@ -23,4 +23,11 @@ class PostView(View):
 		#Recarga la página con la url que indicamos y renderiza de nuevo
 		return redirect('todos')
 
-
+class PostDetailView(View):
+		def get(self, request,slug):
+			post=Post.objects.get(slug=slug)
+			template='post/detalle.html'
+			context={
+			'post':post
+			}
+			return render(request, template, context)
