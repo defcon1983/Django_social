@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Bienvenido a batchbook!! </h2>
+<section class="section">
+		<article class="article">
+			<div class="row">
+				<form action="." method="post">
+				{%csrf_token%}
+				<p>Proporcionanos tu información:</p>
+				{{form.as_p}}
+					<input type="submit" value="Entrar">
+				</form>
+			</div>
+		</article>
+	
+</section>
+
+{% endblock content%}
