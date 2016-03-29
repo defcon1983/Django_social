@@ -1,8 +1,10 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, HttpResponse
 from .models import Post
 from django.views.generic import View
 from .forms import PostForm
 # Create your views here.
+from django.core import serializers
+
 
 class PostView(View):
 	def get(self, request):
@@ -31,3 +33,10 @@ class PostDetailView(View):
 			'post':post
 			}
 			return render(request, template, context)
+
+class Api(View):
+	def get(self, request):
+		posts=Post.objects.all()
+		data = serializers.serialize('json', posts)
+
+		return HttpResponse(data, content_type='application/json')

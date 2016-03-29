@@ -3,10 +3,13 @@
 {%load static%}
 
 {% block content %}
+	<div class="blanco">
 
 	<h2>{{post.titulo}}</h2>
 	<p>{{post.fecha}}</p>
 	<p>{{post.cuerpo}}</p>
 	<h3>{{post.user}}</h3>
+	<img src="{{post.identificador}}">
+	</div>
 
 {%endblock content%}
