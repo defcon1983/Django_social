@@ -37,6 +37,6 @@ class PostDetailView(View):
 class Api(View):
 	def get(self, request):
 		posts=Post.objects.all()
-		data = serializers.serialize('json', posts)
+		data = serializers.serialize('xml', posts)
 
-		return HttpResponse(data, content_type='application/json')
+		return HttpResponse(data, content_type='application/xml')
