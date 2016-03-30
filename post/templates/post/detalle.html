@@ -4,9 +4,32 @@
 
 {% block content %}
 
+{%for message in messages%}
+	<h5 class="error success">{{message}}</h5>
+{%endfor%}
+
+<section class="container">
 	<h2>{{post.titulo}}</h2>
 	<p>{{post.fecha}}</p>
 	<p>{{post.cuerpo}}</p>
 	<h3>{{post.user}}</h3>
+
+	<form method="post" action="{%url 'post:detalle' post.slug%}">
+		{%csrf_token%}
+		{{form.as_p}}
+		<input type="submit" class="btn waves-effect" value="Comentar">
+	</form>
+{%for comment in comments%}
+	<p>{{comment.name}} - {{comment.fecha}}</p>
+	<p>{{comment.cuerpo}}</p>
+
+{%empty%}
+	--------------
+	<h6>No comments ;)</h6>
+
+{%endfor%}
+
+</section>
+
 
 {%endblock content%}

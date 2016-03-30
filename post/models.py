@@ -21,3 +21,12 @@ class Post(models.Model):
 	#Nombre por convencion
 	def get_absolute_url(self):
 		return reverse('post:detalle', args=(self.slug,))
+
+class Comentario(models.Model):
+	post=models.ForeignKey(Post, related_name='comentarios', blank=True, null=True)
+	cuerpo=models.TextField(blank=True, null=True)
+	name=models.ForeignKey(User, related_name='autor', blank=True, null=True)
+	fecha=models.DateTimeField(auto_now=True, blank=True,null=True)
+
+	def __str__(self):
+		return 'Comentario de {} en {}'.format(self.name, self.post)
