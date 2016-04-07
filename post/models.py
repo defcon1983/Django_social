@@ -11,7 +11,7 @@ class Post(models.Model):
 	fecha=models.DateTimeField(auto_now=True)
 	publicado= models.BooleanField(default=True)
 	autor=models.ForeignKey(User, related_name='posts_publicados', blank=True, null=True)
-	# foto = models.ImageField(upload_to='static/')
+	imagen= models.ImageField(upload_to='img_post', blank=True, null = True)
 
 
 

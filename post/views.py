@@ -15,13 +15,14 @@ class PostView(View):
 		context = {
 		'posts': posts,
 		'form': form,
+		
 		}
 
 		return render(request, template, context)
 
 	def post(self,request):
 		#Esto llena el formulario
-		form=PostForm(request.POST)
+		form=PostForm(request.POST, request.FILES)
 		form.save()
 		#Recarga la página con la url que indicamos y renderiza de nuevo
 		return redirect('post:todos')
