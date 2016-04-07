@@ -1,1 +1,1 @@
-web: gunicorn redSocial.wsgi --log-file -
+web: gunicorn redsocial.wsgi --log-file -
